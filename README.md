@@ -1,5 +1,7 @@
 # MTUOC-aligner
-Scripts and programs to automatically align text files using Hunalign or SBERT.
+Scripts and programs to automatically align text files using Hunalign or SBERT developed in the framework of the project **TAN-IBE: Neural Machine Translation for the romance languages of the Iberian Peninsula**, founded by the Spanish Ministry of Science and Innovation Proyectos de generación de conocimiento 2021. Reference: PID2021-124663OB-I00 founded by MCIN /AEI /10.13039/501100011033 / FEDER, UE.
+
+
 
 This repository offers a series of Python scripts and programs to facilitate the process of automatic text text alignment using Hunalign or SBERT. To align the text files, they should be segmented. You can use [MTUOC-segmenter](https://github.com/aoliverg/MTUOC-segmenter), or any other program to segment the files prior aligning them. If you plan to use Hunalign, don't forget to add the paragraph mark (\<p\>). When segmenting the files. When using SBERT don't add the paragraph mark (\<p\>).
 
