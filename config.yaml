@@ -1,0 +1,15 @@
+dirSL: ./2023-txt-en
+dirTL: ./2023-txt-es
+dirALI: ./2023-ali-en-es
+batchfile: batchfile.txt
+srxfile: segment.srx
+SLname: English
+TLname: Spanish
+paramark: True
+r1: None
+r2: None
+alignmentdictionary: hunapertium-en-es.dic
+minconfidence: 1
+outfile: alineacion-2023-eng-spa.txt
+OperatingSystem: Windows
+#one of Windows, Linux, MacOS
