@@ -173,7 +173,6 @@ target_sentences = list(target_sentences)
 print("Encode target sentences")
 target_embeddings = model.encode(target_sentences, show_progress_bar=True, convert_to_numpy=True)
 
-
 # Normalize embeddings
 x = source_embeddings
 x = x / np.linalg.norm(x, axis=1, keepdims=True)
@@ -198,7 +197,6 @@ bwd_best = y2x_ind[np.arange(y.shape[0]), bwd_scores.argmax(axis=1)]
 indices = np.stack([np.concatenate([np.arange(x.shape[0]), bwd_best]), np.concatenate([fwd_best, np.arange(y.shape[0])])], axis=1)
 scores = np.concatenate([fwd_scores.max(axis=1), bwd_scores.max(axis=1)])
 seen_src, seen_trg = set(), set()
-
 #Extact list of parallel sentences
 print("Write sentences to disc")
 sentences_written = 0

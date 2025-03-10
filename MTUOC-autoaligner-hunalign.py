@@ -48,6 +48,7 @@ from typing import (
     Optional
 )
 
+import sys
 
 class SrxSegmenter:
     """Handle segmentation with SRX regex format.
@@ -166,7 +167,10 @@ def select_config_file():
 
 def go():
     ###YAML
-    configfile=E1.get()
+    if len(sys.argv)==1:
+        configfile=E1.get()
+    else:
+        configfile=sys.argv[1]
     stream = open(configfile, 'r',encoding="utf-8")
     configYAML=yaml.load(stream, Loader=yaml.FullLoader)
 
@@ -355,22 +359,24 @@ def go():
                     if toWrite:
                         sortida.write(cadena+"\n")
 
-    
 
-top = Tk()
-top.title("MTUOC-autoaligner-hunalign")
 
-B1=tkinter.Button(top, text = str("Select config file"), borderwidth = 1, command=select_config_file,width=14).grid(row=0,column=0)
-E1 = tkinter.Entry(top, bd = 5, width=60, justify="right")
-E1.grid(row=0,column=1)
+if len(sys.argv)==1:
+    top = Tk()
+    top.title("MTUOC-autoaligner-hunalign")
 
-E1.delete(0,END)
-E1.insert(0,os.path.join(os.getcwd(), "config.yaml"))
+    B1=tkinter.Button(top, text = str("Select config file"), borderwidth = 1, command=select_config_file,width=14).grid(row=0,column=0)
+    E1 = tkinter.Entry(top, bd = 5, width=60, justify="right")
+    E1.grid(row=0,column=1)
 
-B2=tkinter.Button(top, text = str("Align!"), borderwidth = 1, command=go,width=14).grid(sticky="W",row=5,column=0)
+    E1.delete(0,END)
+    E1.insert(0,os.path.join(os.getcwd(), "config.yaml"))
 
-top.mainloop()
-    
+    B2=tkinter.Button(top, text = str("Align!"), borderwidth = 1, command=go,width=14).grid(sticky="W",row=5,column=0)
+
+    top.mainloop()
+else:
+    go()
 
 
 
